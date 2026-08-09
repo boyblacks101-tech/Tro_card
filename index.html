@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tro Card</title>
+<title>Troviruses up</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#000000">
 <style>
@@ -17,8 +17,8 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,'Segoe UI',
 .btitle{font-size:32px;font-weight:800;letter-spacing:-.5px;margin:8px 0 4px}
 .stitle{font-size:13px;color:var(--dim);letter-spacing:1px;margin:18px 4px 6px;font-weight:600}
 .splash{position:fixed;inset:0;background:var(--bg);z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.logo{width:96px;height:96px;background:var(--card2);border-radius:24px;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-style:italic;font-size:52px;color:var(--acc)}
-.ltitle{font-size:28px;font-weight:800;margin-top:18px}
+.logo{width:96px;height:96px;background:var(--card2);border-radius:24px;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-style:italic;font-size:44px;color:var(--acc)}
+.ltitle{font-size:26px;font-weight:800;margin-top:18px}
 .lsub{font-size:11px;letter-spacing:4px;color:var(--dim);margin-top:6px}
 .obslide{min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .obslide .big{font-size:64px}
@@ -94,11 +94,30 @@ label.f{font-size:11px;letter-spacing:1px;color:var(--dim);display:block;margin-
 .tab{background:none;border:none;color:var(--dim);font-size:10px;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;font-weight:600}
 .tab .ic{font-size:20px}
 .tab.on{color:var(--acc)}
+.youcard{background:var(--card);border:1px solid var(--bord);border-radius:24px;padding:18px;text-align:center;margin:10px 0}
+.yname{font-size:20px;font-weight:800;margin-top:4px}
+.yrank{display:inline-block;background:var(--acc);color:#fff;border-radius:8px;padding:3px 12px;font-weight:800;font-size:12px;letter-spacing:3px;margin:6px 2px}
+.ylvl{color:var(--dim);font-size:12px;letter-spacing:2px;font-weight:700}
+.attr{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:14px;padding:10px 14px;margin:8px 0}
+.attr .ic{font-size:20px}
+.attr .bar{flex:1;height:8px;background:var(--card2);border-radius:4px;overflow:hidden}
+.attr .bar i{display:block;height:100%;background:var(--acc)}
+.attr .lv{font-size:12px;color:var(--dim);width:52px;text-align:right;font-weight:700}
+.habit{display:flex;justify-content:space-between;align-items:center;background:var(--card);border-radius:14px;padding:12px 14px;margin:8px 0}
+.habit .nm{font-size:14px;font-weight:600}
+.habit .st{font-size:11px;color:var(--dim)}
+.hbtn{width:36px;height:36px;border-radius:50%;border:2px solid var(--bord);background:none;color:var(--dim);font-size:16px;flex:none}
+.hbtn.done{background:var(--acc);border-color:var(--acc);color:#fff}
+.stars button{background:none;border:none;font-size:24px;padding:2px}
+.hdots{display:flex;gap:3px;justify-content:flex-end;margin-top:4px}
+.hdots i{width:8px;height:8px;border-radius:2px;background:var(--card2)}
+.hdots i.on{background:var(--acc)}
 </style>
 </head>
 <body>
+<script>window.onerror=function(m,s,l){var d=document.createElement('pre');d.style.cssText='color:#ff453a;padding:20px;white-space:pre-wrap;font-size:12px';d.textContent='⚠ ERROR: '+m+' (line '+l+')';document.body.appendChild(d);};</script>
 <div id="ncr" class="reminder"></div>
-<div id="scrSplash" class="screen splash"><div class="logo">T</div><div class="ltitle">Tro Card</div><div class="lsub">own your words</div></div>
+<div id="scrSplash" class="screen splash"><div class="logo">T↑</div><div class="ltitle">Troviruses up</div><div class="lsub">level your self</div></div>
 <div id="scrOnboard" class="screen">
   <div id="obSlide" class="obslide"></div>
   <div id="obDots" class="obdots"></div>
@@ -110,7 +129,7 @@ label.f{font-size:11px;letter-spacing:1px;color:var(--dim);display:block;margin-
   <div class="row"><button class="btn fill" onclick="tryUnlock()">UNLOCK</button></div>
 </div>
 <div id="scrHome" class="screen">
-  <div class="btitle">Tro Card</div>
+  <div class="btitle">Troviruses up</div>
   <div id="ladderBox" class="ladder"></div>
   <div class="ringwrap"><svg width="120" height="120"><circle cx="60" cy="60" r="52" stroke="var(--card2)" stroke-width="8" fill="none"/><circle id="ringFg" cx="60" cy="60" r="52" stroke="var(--acc)" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7" transform="rotate(-90 60 60)"/></svg><div id="ringTxt" class="pos"></div></div>
   <div id="wotd" class="statcard" style="cursor:pointer" onclick="speakWotd()"></div>
@@ -131,6 +150,39 @@ label.f{font-size:11px;letter-spacing:1px;color:var(--dim);display:block;margin-
     <button class="btn" onclick="nav('scrShop');renderShop()">🛍 SHOP</button>
     <button class="btn" onclick="nav('scrBulk')">⚡ BULK</button>
   </div>
+</div>
+<div id="scrYou" class="screen">
+  <div class="btitle">Status Window</div>
+  <div class="youcard">
+    <div id="yBoy"></div>
+    <div class="yname" id="yName">Player</div>
+    <div><span class="yrank" id="yRank">RANK E</span></div>
+    <div class="ylvl" id="yLvl">LV 1</div>
+  </div>
+  <div id="attrBox"></div>
+  <div class="stitle">DAILY QUESTS — PREPARE TO BECOME STRONG</div>
+  <div id="habitBox"></div>
+  <div class="row"><button class="btn" onclick="nav('scrHabits');renderHabits()">✚ EDIT QUESTS</button><button class="btn" onclick="nav('scrStats');renderStats()">📊 STATS</button></div>
+  <div class="stitle">DAILY LOG</div>
+  <div class="igroup"><div class="irow"><div id="moodBox"></div></div><div class="irow"><div id="moodChart" class="pos"></div></div></div>
+  <div class="row"><button class="btn" onclick="nav('scrPatch');renderPatch()">📜 PATCH NOTES OF YOU</button></div>
+</div>
+<div id="scrHabits" class="screen">
+  <div class="btitle">Quest Editor</div>
+  <div id="habitList"></div>
+  <div class="stitle">NEW QUEST</div>
+  <div class="igroup">
+    <div class="irow"><label class="f">NAME</label><input id="hbName" placeholder="Workout 20 min"></div>
+    <div class="irow"><label class="f">ICON (EMOJI)</label><input id="hbIcon" maxlength="4" value="💪"></div>
+    <div class="irow"><label class="f">ATTRIBUTE</label><select id="hbAttr"></select></div>
+    <div class="irow"><label class="f">XP</label><input id="hbXp" type="number" value="20"></div>
+  </div>
+  <div class="row"><button class="btn fill" onclick="addHabit()">✚ ADD QUEST</button><button class="btn" onclick="tabTo('you')">BACK</button></div>
+</div>
+<div id="scrPatch" class="screen">
+  <div class="btitle">Patch Notes</div>
+  <div id="patchBox"></div>
+  <div class="row"><button class="btn" onclick="tabTo('you')">BACK</button></div>
 </div>
 <div id="scrStudy" class="screen">
   <div id="comboBar" class="combo hidden"></div>
@@ -204,7 +256,6 @@ label.f{font-size:11px;letter-spacing:1px;color:var(--dim);display:block;margin-
   <div class="stitle">PROFILE</div>
   <div class="igroup">
     <div class="irow"><label class="f">NAME</label><input id="sName"></div>
-    <div class="irow"><label class="f">AVATAR (EMOJI)</label><input id="sAvatar" maxlength="4"></div>
     <div class="irow"><label class="f">REMINDER TEXT (TOP)</label><input id="sNcr"></div>
   </div>
   <div class="stitle">APPEARANCE</div>
@@ -214,10 +265,13 @@ label.f{font-size:11px;letter-spacing:1px;color:var(--dim);display:block;margin-
   </div>
   <div class="stitle">NOTIFICATIONS 🔔</div>
   <div class="igroup">
-    <label class="swrow"><span>Enable daily reminder</span><span class="sw"><input type="checkbox" id="nOn"><i></i></span></label>
+    <label class="swrow"><span>Words reminder</span><span class="sw"><input type="checkbox" id="nOn"><i></i></span></label>
     <div class="irow"><label class="f">TIME</label><input id="nTime" type="time" value="20:00"></div>
-    <div class="irow"><label class="f">MESSAGE TEXT</label><input id="nText" placeholder="Time to review! 📚"></div>
-    <div class="irow"><button class="btn" onclick="testNotif()"> TEST NOTIFICATION</button></div>
+    <div class="irow"><label class="f">MESSAGE</label><input id="nText" placeholder="Time to review! 📚"></div>
+    <label class="swrow"><span>Self-care reminder</span><span class="sw"><input type="checkbox" id="n2On"><i></i></span></label>
+    <div class="irow"><label class="f">TIME</label><input id="n2Time" type="time" value="21:30"></div>
+    <div class="irow"><label class="f">MESSAGE</label><input id="n2Text" placeholder="Water, stretch, sleep 💧"></div>
+    <div class="irow"><button class="btn" onclick="testNotif()"> TEST</button></div>
   </div>
   <div class="stitle">STUDY</div>
   <div class="igroup">
@@ -230,50 +284,4 @@ label.f{font-size:11px;letter-spacing:1px;color:var(--dim);display:block;margin-
   <div class="igroup">
     <div class="irow"><label class="f">TARGET RETENTION: <span id="retTxt">90%</span></label><input id="fRet" type="range" min="80" max="97" value="90" oninput="document.getElementById('retTxt').textContent=this.value+'%'"></div>
     <div class="irow"><label class="f">INTERVAL MULTIPLIER: <span id="multTxt">1.0x</span></label><input id="fMult" type="range" min="5" max="20" value="10" oninput="document.getElementById('multTxt').textContent=(this.value/10).toFixed(1)+'x'"></div>
-  </div>
-  <div class="stitle">PODCAST</div>
-  <div class="igroup">
-    <div class="irow"><label class="f">GAP (SEC)</label><input id="pGap" type="number" value="3"></div>
-    <div class="irow"><label class="f">ORDER</label><select id="pOrder"><option value="wde">Word→Def→Example</option><option value="wd">Word→Def</option><option value="dw">Def→Word</option></select></div>
-  </div>
-  <div class="stitle">LEAGUE & REPORT</div>
-  <div class="igroup">
-    <div class="irow"><label class="f">RIVALS (3-10)</label><input id="lRivals" type="number" min="3" max="10" value="5"></div>
-    <div class="irow"><label class="f">RIVAL DIFFICULTY</label><select id="lDiff"><option value="chill">Chill</option><option value="normal">Normal</option><option value="brutal">Brutal</option></select></div>
-    <div class="irow"><label class="f">REPORT DAY</label><select id="rDay"><option value="5">Friday</option><option value="6">Saturday</option><option value="0">Sunday</option></select></div>
-    <label class="swrow"><span>Emoji-heavy report</span><span class="sw"><input type="checkbox" id="rEmoji"><i></i></span></label>
-  </div>
-  <div class="stitle">THEME BUILDER</div>
-  <div class="igroup">
-    <div class="irow"><label class="f">ACCENT</label><input id="tbAcc" type="color" value="#0a84ff"></div>
-    <div class="irow"><label class="f">BACKGROUND</label><input id="tbBg" type="color" value="#000000"></div>
-    <div class="irow"><label class="f">TEXT</label><input id="tbTxt" type="color" value="#f2f2f7"></div>
-    <div class="irow"><label class="f">THEME NAME</label><input id="tbName" placeholder="My theme"></div>
-    <div class="irow"><button class="btn" onclick="saveCustomTheme()">🎨 SAVE THEME</button></div>
-  </div>
-  <div class="stitle">SHARE DECK</div>
-  <div class="igroup">
-    <div class="irow"><div class="row"><button class="btn" onclick="exportDeck()">📤 MAKE CODE</button><button class="btn" onclick="importDeck()">📥 IMPORT</button></div><textarea id="shareBox" style="min-height:70px" placeholder="Deck code..."></textarea></div>
-  </div>
-  <div class="stitle">SECURITY & DATA</div>
-  <div class="igroup">
-    <div class="irow"><label class="f">SET / CHANGE PIN</label><input id="sPin" type="password" inputmode="numeric"></div>
-    <div class="irow"><div class="row"><button class="btn" onclick="clearPin()">REMOVE PIN</button><button class="btn" onclick="exportJSON()">⬇ BACKUP</button><label class="btn">⬆ RESTORE<input type="file" accept=".json" style="display:none" onchange="importJSON(this.files[0])"></label></div></div>
-  </div>
-  <div class="row"><button class="btn fill" onclick="saveSettings()">💾 SAVE ALL</button></div>
-</div>
-<div id="scrReport" class="screen">
-  <div class="btitle">Weekly Report</div>
-  <div id="reportBox"></div>
-</div>
-<div id="tabbar" class="tabbar hidden">
-  <button class="tab on" id="tb-home" onclick="tabTo('home')"><span class="ic">🏠</span>Home</button>
-  <button class="tab" id="tb-browse" onclick="tabTo('browse')"><span class="ic">📚</span>Browse</button>
-  <button class="tab" id="tb-add" onclick="tabTo('add')"><span class="ic">➕</span>Add</button>
-  <button class="tab" id="tb-stats" onclick="tabTo('stats')"><span class="ic">📊</span>Stats</button>
-  <button class="tab" id="tb-settings" onclick="tabTo('settings')"><span class="ic">⚙️</span>Settings</button>
-</div>
-<script src="data.js"></script>
-<script src="core.js"></script>
-</body>
-                              </html>
+                         
