@@ -28,4 +28,15 @@ window.renderSkills=function(){G.esk();G.mp();
 var h='<div class="btitle">Skills</div><div class="swpanel"><div class="swbar mp"><span>MP</span><div class="tr"><i style="width:'+Math.round(100*set.mp.cur/set.mp.max)+'%"></i></div><b>'+Math.floor(set.mp.cur)+'/'+set.mp.max+'</b></div><div class="swpts">'+(set.sp>0?set.sp+' SKILL POINTS':'EARN SP BY LEVELING UP')+'</div></div>';
 if((set.focusUntil||0)>Date.now())h+='<div class="dqpen" style="border-color:var(--acc);color:var(--acc);background:none">'+I('target')+' FOCUS — '+Math.ceil((set.focusUntil-Date.now())/60000)+' min</div>';
 SK.forEach(function(s){var un=G.has(s.id),lk=!un&&(levelOf()<s.lvl||set.sp<s.cost);
-h+='<div class="skcard
+h+='<div class="skcard'+(lk?' sklock':'')+'"><span class="sic" style="color:'+RAR[s.rar]+';border-color:'+RAR[s.rar]+'">'+I(s.ic)+'</span><span style="flex:1"><div class="nm">'+s.nm+'</div><div class="rar" style="color:'+RAR[s.rar]+'">'+s.rar.toUpperCase()+' • '+s.ty+(s.lvl>1?' • LV '+s.lvl:'')+'</div><div class="ds">'+s.ds+'</div></span>';
+if(!un)h+='<button class="btn" onclick="learnSkill(\''+s.id+'\')">'+s.cost+' SP</button>';
+else if(s.ty==='PASSIVE')h+='<span class="chip on">✔</span>';
+else if(s.id==='focus')h+='<button class="btn fill" onclick="useSkill(\'focus\')">USE 20MP</button>';
+else h+='<button class="btn fill" onclick="useSkill(\'arise\')">'+(set.ariseDay===today()?'USED':'USE 40MP')+'</button>';
+h+='</div>';});
+h+='<div class="row"><button class="btn" onclick="tabTo(\'you\')">BACK</button></div>';
+scr.innerHTML=h;show('scrSkills');};
+function btn(){if($('skBtn'))return;var a=$('attrBox');if(a)a.insertAdjacentHTML('beforebegin','<button id="skBtn" class="btn big" onclick="renderSkills()">'+I('spark')+' SKILLS</button>');}
+setInterval(btn,2000);setTimeout(btn,1200);
+console.log('skills ok');
+})();
