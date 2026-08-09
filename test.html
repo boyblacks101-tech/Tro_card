@@ -1,0 +1,14 @@
+<pre id="o" style="color:#0f0;padding:12px;white-space:pre-wrap;font-size:12px">checking...</pre>
+<script>
+window.addEventListener('error',function(e){var f=(e.filename||'').split('/').pop();document.getElementById('o').textContent+='❌ '+f+' line '+e.lineno+': '+e.message+'\n';},true);
+</script>
+<script src="data.js"></script>
+<script src="core.js"></script>
+<script src="core2.js"></script>
+<script>
+var o=document.getElementById('o');
+o.textContent+='data.js → OB:'+typeof OB+' THEMES:'+typeof THEMES+' ATTRS:'+typeof ATTRS+'\n';
+o.textContent+='core.js → boot:'+typeof boot+' show:'+typeof show+' gradeIt:'+typeof gradeIt+'\n';
+o.textContent+='core2.js → renderYou:'+typeof renderYou+' renderPatch:'+typeof renderPatch+'\n';
+o.textContent+='DONE ✔';
+</script>
