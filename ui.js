@@ -1,11 +1,10 @@
-/* ============ TRO UI ENGINE v3 ============ */
+/* ============ TRO UI ENGINE v4 ============ */
 (function(){
 if(window.__UI__)return;window.__UI__=1;
 function el(t,c){var d=document.createElement(t);if(c)d.className=c;return d;}
 
 var st=el('style');st.textContent='.icn{display:inline-flex;align-items:center;justify-content:center}.icn svg{width:1.15em;height:1.15em;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}#yBoy svg{animation:swFloat 3.2s ease-in-out infinite}@keyframes swFloat{50%{transform:translateY(-6px)}}.swpanel{margin:10px 0;padding:14px;border-radius:16px;background:linear-gradient(165deg,var(--card2),var(--card) 60%);border:1px solid var(--glass-brd)}.swbar{display:flex;align-items:center;gap:8px;margin:7px 0;font-size:11px;letter-spacing:1px;color:var(--dim);font-weight:700}.swbar .tr{flex:1;height:8px;border-radius:4px;background:var(--card2);overflow:hidden}.swbar .tr i{display:block;height:100%}.swbar.hp i{background:linear-gradient(90deg,#ff453a,#ff8a80);box-shadow:0 0 8px #ff453a}.swbar.mp i{background:linear-gradient(90deg,#0a84ff,#64d2ff);box-shadow:0 0 8px #0a84ff}.swbar.sta i{background:linear-gradient(90deg,#ffd60a,#ffe97a);box-shadow:0 0 8px #ffd60a}.swbar b{width:46px;text-align:right;color:var(--txt)}.swstats{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px}.swstat{background:var(--card2);border:1px solid var(--glass-brd);border-radius:10px;padding:6px 10px;font-size:12px;font-weight:700;letter-spacing:1px}.swstat button{background:var(--acc);border:none;color:#fff;border-radius:6px;width:18px;height:18px;font-weight:800;margin-left:6px}.swpts{text-align:center;margin-top:8px;font-size:11px;letter-spacing:2px;color:var(--acc);font-weight:800}';document.head.appendChild(st);
 
-/* ---- icon library ---- */
 var ICONS={
 home:'<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/>',
 dna:'<path d="M8 3c8 6 8 12 0 18"/><path d="M16 3c-8 6-8 12 0 18"/><path d="M9.5 7.5h5"/><path d="M9.5 16.5h5"/>',
@@ -62,7 +61,6 @@ medal:'<circle cx="12" cy="14.5" r="5"/><path d="M9.5 10.5 6 3M14.5 10.5 18 3"/>
 };
 window.icon=function(n){return '<span class="icn"><svg viewBox="0 0 24 24">'+(ICONS[n]||'')+'</svg></span>';};
 
-/* ---- emoji map (unicode escapes = ضد خرابی) ---- */
 var EMO={'\uD83C\uDFE0':'home','\uD83E\uDDEC':'dna','\u2795':'plus','\u271A':'plus','\uD83D\uDCDA':'book','\u2699':'gear','\u25B6':'play','\uD83C\uDFA7':'phones','\uD83D\uDCAA':'dumbbell','\uD83D\uDCC5':'cal','\uD83C\uDF0C':'galaxy','\uD83D\uDC65':'users','\uD83D\uDECD':'cart','\u26A1':'bolt','\uD83D\uDD0D':'search','\uD83D\uDD12':'lock','\uD83D\uDCBE':'save','\u2715':'x','\uD83D\uDCCA':'chart','\uD83D\uDCC8':'chart','\uD83D\uDCDC':'doc','\uD83C\uDF81':'gift','\uD83E\uDDCA':'ice','\uD83D\uDD25':'flame','\uD83C\uDFAF':'target','\uD83C\uDFC6':'trophy','\uD83D\uDC8E':'gem','\uD83D\uDCB0':'gem','\uD83D\uDDE1':'sword','\u2694':'sword','\uD83D\uDC80':'skull','\uD83D\uDC79':'skull','\uD83C\uDF19':'moon','\uD83E\uDDE0':'brain','\uD83D\uDD14':'bell','\u23F1':'clock','\u2705':'check','\u2714':'check','\uD83D\uDEE1':'shield','\uD83C\uDF92':'bag','\uD83D\uDCA7':'drop','\uD83D\uDCBC':'case','\uD83C\uDFA8':'palette','\uD83D\uDCE4':'upload','\u2B06':'upload','\uD83D\uDCE5':'download','\u2B07':'download','\uD83D\uDCDD':'edit','\u270F':'edit','\u26A0':'warn','\uD83D\uDCD6':'bookopen','\u2764':'heart','\uD83D\uDC51':'crown','\uD83D\uDD11':'key','\uD83D\uDCE6':'box','\u2728':'spark','\uD83C\uDF89':'spark','\uD83E\uDDDC':'leaf','\uD83C\uDF31':'leaf','\uD83D\uDD0A':'speak','\uD83D\uDD2E':'orb','\uD83C\uDF96':'medal','\uD83C\uDFC5':'medal','\uD83E\uDD47':'medal'};
 
 function build(node){
@@ -91,7 +89,7 @@ var mo=new MutationObserver(function(){if(busy)return;busy=true;setTimeout(funct
 mo.observe(document.body,{childList:true,subtree:true});
 scan(document.body);
 
-/* ---- SHADOW HUNTER avatar (جایگزین آدمک) ---- */
+/* ---- SHADOW HUNTER avatar ---- */
 function hunterSVG(L){
 var m=Math.min(1,Math.max(0,(L-1)/29));
 var acc=(getComputedStyle(document.documentElement).getPropertyValue('--acc')||'#0a84ff').trim();
@@ -115,8 +113,9 @@ return '<svg viewBox="0 0 200 190" width="170" height="161">'+aura+parts+crown
 }
 window.boySVG=hunterSVG;
 
-/* ---- Status Window: HP/MP/STA + Stat Points ---- */
+/* ---- Status Window ---- */
 function ensureStats(){set.stats=set.stats||{str:1,agi:1,int:1,per:1,vit:1};set.statPoints=set.statPoints||0;}
+window.ensureStats=ensureStats;
 window.assignStat=function(k){ensureStats();if(!(set.statPoints>0))return;set.stats[k]++;set.statPoints--;save();renderYou();};
 var swx=null;
 function enhanceYou(){
@@ -161,11 +160,9 @@ else{o.frequency.setValueAtTime(440,t);}
 g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.12,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+.5);
 o.start(t);o.stop(t+.55);}catch(e){}}
 
-/* ---- toast ---- */
 window.toast=function(msg){var t=el('div','toast');t.innerHTML=msg;wrap.appendChild(t);
 setTimeout(function(){t.classList.add('out');setTimeout(function(){t.remove();},320);},2200);};
 
-/* ---- system window ---- */
 var sysQ=[],sysBusy=false;
 function pump(){if(sysBusy||!sysQ.length)return;sysBusy=true;var m=sysQ.shift();
 $('sysTitle').textContent=m[0];$('sysBody').innerHTML=m[1];
@@ -175,7 +172,6 @@ $('sysBtn').onclick=function(){ov.classList.remove('on');sysBusy=false;setTimeou
 ov.addEventListener('click',function(e){if(e.target===ov)$('sysBtn').click();});
 window.alert=function(msg){window.sysMsg('NOTIFICATION',String(msg));};
 
-/* ---- Level Up watcher (+3 stat points) ---- */
 var lastLvl=null;
 setInterval(function(){if(typeof levelOf!=='function')return;var L=levelOf();
 if(lastLvl===null){lastLvl=L;return;}
@@ -186,5 +182,8 @@ window.levelFX=function(L){$('lvlNum').textContent=L;lv.classList.add('on');sfx(
 if(navigator.vibrate)navigator.vibrate([60,40,60]);
 setTimeout(function(){lv.classList.remove('on');},2200);};
 lv.addEventListener('click',function(){lv.classList.remove('on');});
-console.log('ui engine v3 ok');
+
+/* ---- load game module ---- */
+var gs=document.createElement('script');gs.src='game.js';document.body.appendChild(gs);
+console.log('ui engine v4 ok');
 })();
