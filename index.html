@@ -6,6 +6,7 @@
 <title>Troviruses up</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#000000">
+<script>window.onerror=function(m,s,l){var d=document.createElement('pre');d.style.cssText='color:#ff453a;padding:20px;white-space:pre-wrap;font-size:12px;position:fixed;z-index:999;top:0;left:0;right:0;background:#000';d.textContent='⚠ ERROR: '+m+' (line '+l+')';document.body.appendChild(d);};</script>
 <style>
 :root{--acc:#0a84ff;--bord:#2c3e50;--mut:#98a8b8;--dim:#8e8e93;--txt:#f2f2f7;--bg:#000000;--card:#1c1c1e;--card2:#2c2c2e;--ws:34px;--ms:19px;--r:20px}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -115,7 +116,6 @@ label.f{font-size:11px;letter-spacing:1px;color:var(--dim);display:block;margin-
 </style>
 </head>
 <body>
-<script>window.onerror=function(m,s,l){var d=document.createElement('pre');d.style.cssText='color:#ff453a;padding:20px;white-space:pre-wrap;font-size:12px';d.textContent='⚠ ERROR: '+m+' (line '+l+')';document.body.appendChild(d);};</script>
 <div id="ncr" class="reminder"></div>
 <div id="scrSplash" class="screen splash"><div class="logo">T↑</div><div class="ltitle">Troviruses up</div><div class="lsub">level your self</div></div>
 <div id="scrOnboard" class="screen">
@@ -283,5 +283,4 @@ label.f{font-size:11px;letter-spacing:1px;color:var(--dim);display:block;margin-
   <div class="stitle">FSRS TUNING</div>
   <div class="igroup">
     <div class="irow"><label class="f">TARGET RETENTION: <span id="retTxt">90%</span></label><input id="fRet" type="range" min="80" max="97" value="90" oninput="document.getElementById('retTxt').textContent=this.value+'%'"></div>
-    <div class="irow"><label class="f">INTERVAL MULTIPLIER: <span id="multTxt">1.0x</span></label><input id="fMult" type="range" min="5" max="20" value="10" oninput="document.getElementById('multTxt').textContent=(this.value/10).toFixed(1)+'x'"></div>
-                         
+    <div class="irow"><label class="f">INTERVAL MULTIPLIER: <span id="multTxt">1.0x</span></label><input id="fMult" type="range" min="5" max="20" value="10" oninput="document.getElementByI
