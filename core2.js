@@ -155,3 +155,5 @@ function clearPin(){set.pin='';save();alert('PIN removed');}
 function exportJSON(){const blob=new Blob([JSON.stringify({cards:cards,set:set},null,1)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='troviruses-backup.json';a.click();}
 function importJSON(f){if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(d.cards){cards=d.cards;if(d.set)set=Object.assign(set,d.set);save();alert('Imported ✔');boot();}}catch(e){alert('Bad file');}};r.readAsText(f);}
 console.log('core2 ok');
+boot();
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
