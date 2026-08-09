@@ -1,0 +1,21 @@
+<pre id="o" style="color:#0f0;padding:12px;white-space:pre-wrap;font-size:12px">test3 loading...</pre>
+<div id="ncr"></div>
+<div id="scrSplash"><div class="logo">T</div></div>
+<div id="scrOnboard"><div id="obSlide"></div><div id="obDots"></div></div>
+<div id="scrLock"><input id="pinIn"></div>
+<script src="data.js"></script>
+<script src="core.js"></script>
+<script src="core2.js"></script>
+<script>
+var LOG=[];
+var _s=window.show;
+window.show=function(id){LOG.push('show:'+id);try{_s(id);}catch(e){LOG.push('showERR:'+id+':'+e.message);}};
+window.addEventListener('error',function(e){LOG.push('ERR line '+e.lineno+': '+e.message);},true);
+setTimeout(function(){
+var o=document.getElementById('o');
+o.textContent='=== LIVE LOG (3s) ===\n'+(LOG.join('\n')||'(empty)')+'\n\nsplash display: '+getComputedStyle(document.getElementById('scrSplash')).display+'\nonboard display: '+getComputedStyle(document.getElementById('scrOnboard')).display+'\nobSlide content length: '+document.getElementById('obSlide').innerHTML.length+'\n';
+fetch('index.html?t='+Date.now()).then(function(r){return r.text();}).then(function(t){
+o.textContent+='\n=== DEPLOYED index.html ===\nsize: '+t.length+' bytes\nhas fixed onerror (999): '+t.includes('z-index:999')+'\nhas scrOnboard: '+t.includes('scrOnboard')+'\nhas core2 tag: '+t.includes('core2.js')+'\nhas Status Window: '+t.includes('Status Window')+'\nLAST 60 chars: '+t.slice(-60);
+});
+},3000);
+</script>
