@@ -1,0 +1,6 @@
+:root{--acc:#8a63c9;--bord:#4c3a6b;--mut:#a78fd4;--dim:#8d84a0;--txt:#ece7f6;--bg:#000000;--ws:34px;--ms:19px;--r:14px;--card:#0d0812}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',Tahoma,sans-serif;font-size:15px;line-height:1.5;padding:56px 0 40px}
+.reminder{position:fixed;top:10px;left:0;right:0;text-align:center;font-family:Georgia,serif;font-style:italic;font-size:19px;color:var(--acc);z-index:5}
+#ham{position:fixed;top:8px;left:10px;background:none;border:1px solid var(--bord);border-radius:10px;color:
