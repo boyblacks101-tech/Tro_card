@@ -12,7 +12,8 @@ const FS={s:['28px','17px'],m:['34px','19px'],l:['40px','22px']};
 const RANKS=[[0,'Rookie'],[100,'Word Hunter'],[250,'Lexicon Learner'],[500,'Vocab Knight'],[900,'Memory Baron'],[1400,'Word Wizard'],[2000,'Lexicon Lord'],[3000,'Word Master']];
 const RIVALS=['Ava','Kian','Lily','Omid','Nora','Reza','Maya','Arman','Sara','Ben'];
 const RIVAL_RATE={chill:[5,20],normal:[15,45],brutal:[30,80]};
-const OB=[['🍎','Tro Card','Your personal word universe. Dark, calm, yours.'],['🧠','Smart Review','FSRS schedules each word exactly when you are about to forget it.'],['🎮','Play To Learn','Quests, combos, leagues, mystery boxes — study never felt like this.']];
+const ATTRS=[['mind','🧠','Mind'],['body','💪','Body'],['calm','🧘','Calm'],['work','💼','Work'],['create','🎨','Create']];
+const OB=[['🗡️','Troviruses up','You have been chosen as a Player. Level up your words, your body, your self.'],['🧬','Status Window','Every action gives XP. Watch your character grow from weak to S-Rank.'],['📜','Patch Notes','Each week, the app writes the update notes of YOU.'],];
 const LADDER=[10,20,30,'box',50,'freeze',100];
 const QUESTS=[
 {id:'rev10',label:'Review 10 cards',target:10,key:'rev',xp:20},
@@ -22,3 +23,4 @@ const SHOP=[
 {id:'freeze',name:'🧊 Streak Freeze',price:150,desc:'Protects streak for one missed day'},
 {id:'box',name:'🎁 Mystery Box',price:100,desc:'Random reward inside'}];
 const BADGES=[['🌱','First Step'],['📚','Collector'],['🔥','Week Flame'],['💯','Reviewer'],['🏆','LVL 5'],['💪','Slayer'],['🎧','Listener'],['📅','Exam Ready']];
+console.log('data ok');
