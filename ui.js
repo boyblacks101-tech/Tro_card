@@ -1,10 +1,9 @@
-/* ============ TRO UI ENGINE v2 (icons) ============ */
+/* ============ TRO UI ENGINE v3 ============ */
 (function(){
 if(window.__UI__)return;window.__UI__=1;
 function el(t,c){var d=document.createElement(t);if(c)d.className=c;return d;}
 
-/* ---- injected icon css ---- */
-var st=el('style');st.textContent='.icn{display:inline-flex;align-items:center;justify-content:center}.icn svg{width:1.15em;height:1.15em;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}';document.head.appendChild(st);
+var st=el('style');st.textContent='.icn{display:inline-flex;align-items:center;justify-content:center}.icn svg{width:1.15em;height:1.15em;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}#yBoy svg{animation:swFloat 3.2s ease-in-out infinite}@keyframes swFloat{50%{transform:translateY(-6px)}}.swpanel{margin:10px 0;padding:14px;border-radius:16px;background:linear-gradient(165deg,var(--card2),var(--card) 60%);border:1px solid var(--glass-brd)}.swbar{display:flex;align-items:center;gap:8px;margin:7px 0;font-size:11px;letter-spacing:1px;color:var(--dim);font-weight:700}.swbar .tr{flex:1;height:8px;border-radius:4px;background:var(--card2);overflow:hidden}.swbar .tr i{display:block;height:100%}.swbar.hp i{background:linear-gradient(90deg,#ff453a,#ff8a80);box-shadow:0 0 8px #ff453a}.swbar.mp i{background:linear-gradient(90deg,#0a84ff,#64d2ff);box-shadow:0 0 8px #0a84ff}.swbar.sta i{background:linear-gradient(90deg,#ffd60a,#ffe97a);box-shadow:0 0 8px #ffd60a}.swbar b{width:46px;text-align:right;color:var(--txt)}.swstats{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px}.swstat{background:var(--card2);border:1px solid var(--glass-brd);border-radius:10px;padding:6px 10px;font-size:12px;font-weight:700;letter-spacing:1px}.swstat button{background:var(--acc);border:none;color:#fff;border-radius:6px;width:18px;height:18px;font-weight:800;margin-left:6px}.swpts{text-align:center;margin-top:8px;font-size:11px;letter-spacing:2px;color:var(--acc);font-weight:800}';document.head.appendChild(st);
 
 /* ---- icon library ---- */
 var ICONS={
@@ -63,16 +62,15 @@ medal:'<circle cx="12" cy="14.5" r="5"/><path d="M9.5 10.5 6 3M14.5 10.5 18 3"/>
 };
 window.icon=function(n){return '<span class="icn"><svg viewBox="0 0 24 24">'+(ICONS[n]||'')+'</svg></span>';};
 
-/* ---- emoji -> icon map ---- */
-var EMO={'🏠':'home','🧬':'dna','➕':'plus','✚':'plus','📚':'book','⚙':'gear','▶':'play','🎧':'phones','💪':'dumbbell','📅':'cal','🌌':'galaxy','👥':'users','🛍':'cart','⚡':'bolt','🔍':'search','🔒':'lock','💾':'save','✕':'x','📊':'chart','📈':'chart','📜':'doc','🎁':'gift','🧊':'ice','🔥':'flame','🎯':'target','🏆':'trophy','💎':'gem','💰':'gem','🗡':'sword','⚔':'sword','💀':'skull','👹':'skull','🌙':'moon','🧠':'brain','🔔':'bell','⏱':'clock','✅':'check','✔':'check','🛡':'shield','🎒':'bag','💧':'drop','💼':'case','🎨':'palette','📤':'upload','⬆':'upload','📥':'download','⬇':'download','📝':'edit','✏':'edit','':'warn','':'bookopen','❤':'heart','👑':'crown','🔑':'key','📦':'box','✨':'spark','🎉':'spark','🧘':'leaf','🌱':'leaf','🔊':'speak','🔮':'orb','🎖':'medal','🏅':'medal','🥇':'medal'};
+/* ---- emoji map (unicode escapes = ضد خرابی) ---- */
+var EMO={'\uD83C\uDFE0':'home','\uD83E\uDDEC':'dna','\u2795':'plus','\u271A':'plus','\uD83D\uDCDA':'book','\u2699':'gear','\u25B6':'play','\uD83C\uDFA7':'phones','\uD83D\uDCAA':'dumbbell','\uD83D\uDCC5':'cal','\uD83C\uDF0C':'galaxy','\uD83D\uDC65':'users','\uD83D\uDECD':'cart','\u26A1':'bolt','\uD83D\uDD0D':'search','\uD83D\uDD12':'lock','\uD83D\uDCBE':'save','\u2715':'x','\uD83D\uDCCA':'chart','\uD83D\uDCC8':'chart','\uD83D\uDCDC':'doc','\uD83C\uDF81':'gift','\uD83E\uDDCA':'ice','\uD83D\uDD25':'flame','\uD83C\uDFAF':'target','\uD83C\uDFC6':'trophy','\uD83D\uDC8E':'gem','\uD83D\uDCB0':'gem','\uD83D\uDDE1':'sword','\u2694':'sword','\uD83D\uDC80':'skull','\uD83D\uDC79':'skull','\uD83C\uDF19':'moon','\uD83E\uDDE0':'brain','\uD83D\uDD14':'bell','\u23F1':'clock','\u2705':'check','\u2714':'check','\uD83D\uDEE1':'shield','\uD83C\uDF92':'bag','\uD83D\uDCA7':'drop','\uD83D\uDCBC':'case','\uD83C\uDFA8':'palette','\uD83D\uDCE4':'upload','\u2B06':'upload','\uD83D\uDCE5':'download','\u2B07':'download','\uD83D\uDCDD':'edit','\u270F':'edit','\u26A0':'warn','\uD83D\uDCD6':'bookopen','\u2764':'heart','\uD83D\uDC51':'crown','\uD83D\uDD11':'key','\uD83D\uDCE6':'box','\u2728':'spark','\uD83C\uDF89':'spark','\uD83E\uDDDC':'leaf','\uD83C\uDF31':'leaf','\uD83D\uDD0A':'speak','\uD83D\uDD2E':'orb','\uD83C\uDF96':'medal','\uD83C\uDFC5':'medal','\uD83E\uDD47':'medal'};
 
-/* ---- auto emoji->svg swap ---- */
 function build(node){
 var t=node.nodeValue.replace(/\uFE0F/g,'');var parent=node.parentNode;var frag=document.createDocumentFragment();var pos=0;
 while(pos<t.length){
 var best=-1,bk=null;
-for(var k in EMO){var i=t.indexOf(k,pos);if(i>-1&&(best===-1||i<best)){best=i;bk=k;}}
-if(best===-1){frag.appendChild(document.createTextNode(t.slice(pos)));break;}
+for(var k in EMO){if(!k.length)continue;var i=t.indexOf(k,pos);if(i>-1&&(best===-1||i<best)){best=i;bk=k;}}
+if(best===-1||!bk){frag.appendChild(document.createTextNode(t.slice(pos)));break;}
 if(best>pos)frag.appendChild(document.createTextNode(t.slice(pos,best)));
 var s=el('span');s.innerHTML=window.icon(EMO[bk]);frag.appendChild(s.firstChild);
 pos=best+bk.length;
@@ -81,25 +79,71 @@ parent.replaceChild(frag,node);
 }
 function scan(root){
 if(!root)return;
-if(root.nodeType===3){for(var k in EMO){if(root.nodeValue.indexOf(k)>-1){build(root);break;}}return;}
+if(root.nodeType===3){for(var k in EMO){if(k.length&&root.nodeValue.indexOf(k)>-1){build(root);break;}}return;}
 var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
 var p=n.parentNode;if(p&&(/^(SCRIPT|STYLE)$/.test(p.tagName)))return NodeFilter.FILTER_REJECT;
 return NodeFilter.FILTER_ACCEPT;}});
 var nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
-nodes.forEach(function(n){for(var k in EMO){if(n.nodeValue.indexOf(k)>-1){build(n);break;}}});
+nodes.forEach(function(n){for(var k in EMO){if(k.length&&n.nodeValue.indexOf(k)>-1){build(n);break;}}});
 }
 var busy=false;
 var mo=new MutationObserver(function(){if(busy)return;busy=true;setTimeout(function(){scan(document.body);busy=false;},80);});
 mo.observe(document.body,{childList:true,subtree:true});
 scan(document.body);
 
+/* ---- SHADOW HUNTER avatar (جایگزین آدمک) ---- */
+function hunterSVG(L){
+var m=Math.min(1,Math.max(0,(L-1)/29));
+var acc=(getComputedStyle(document.documentElement).getPropertyValue('--acc')||'#0a84ff').trim();
+var cloak='#0c111d',cloak2='#101a2e',voidc='#04060b';
+var aura='<circle cx="100" cy="100" r="'+Math.round(58+22*m)+'" fill="'+acc+'" opacity="'+(0.05+0.13*m).toFixed(2)+'"/><circle cx="100" cy="100" r="'+Math.round(66+22*m)+'" fill="none" stroke="'+acc+'" stroke-width="1" stroke-dasharray="3 7" opacity="'+(0.15+0.35*m).toFixed(2)+'"/>';
+var parts='<circle cx="62" cy="70" r="1.6" fill="'+acc+'" opacity=".5"/><circle cx="140" cy="60" r="1.2" fill="'+acc+'" opacity=".4"/><circle cx="52" cy="120" r="1.2" fill="'+acc+'" opacity=".35"/><circle cx="150" cy="118" r="1.6" fill="'+acc+'" opacity=".45"/>';
+var crown=m>=0.8?'<path d="M82 10l5 7 6.5-9 6.5 9 5-7v9h-23z" fill="'+acc+'" opacity=".9"/>':'';
+var runes=m>=0.5?'<path d="M78 100l4 6-4 6" stroke="'+acc+'" stroke-width="1.2" fill="none" opacity=".6"/><path d="M122 100l-4 6 4 6" stroke="'+acc+'" stroke-width="1.2" fill="none" opacity=".6"/>':'';
+var eyes='<circle cx="94" cy="47" r="'+(3.4+1.4*m)+'" fill="'+acc+'" opacity=".25"/><circle cx="106" cy="47" r="'+(3.4+1.4*m)+'" fill="'+acc+'" opacity=".25"/><circle cx="94" cy="47" r="'+(1.8+0.8*m)+'" fill="'+acc+'"/><circle cx="106" cy="47" r="'+(1.8+0.8*m)+'" fill="'+acc+'"/>';
+return '<svg viewBox="0 0 200 190" width="170" height="161">'+aura+parts+crown
++'<path d="M100 58C78 62 70 78 66 96l-6 54c14 10 28 14 40 14s26-4 40-14l-6-54c-4-18-12-34-34-38z" fill="'+cloak+'" stroke="'+acc+'" stroke-opacity=".35"/>'
++'<path d="M74 66 60 74l6 14 14-8z" fill="'+cloak2+'" stroke="'+acc+'" stroke-opacity=".4"/>'
++'<path d="M126 66l14 8-6 14-14-8z" fill="'+cloak2+'" stroke="'+acc+'" stroke-opacity=".4"/>'
++'<path d="M100 20c-16 0-26 12-26 26 0 10 5 16 10 20h32c5-4 10-10 10-20 0-14-10-26-26-26z" fill="'+cloak+'" stroke="'+acc+'" stroke-opacity=".35"/>'
++'<ellipse cx="100" cy="47" rx="15" ry="12" fill="'+voidc+'"/>'+eyes
++'<path d="M100 84l6 8-6 8-6-8z" fill="none" stroke="'+acc+'" stroke-width="1.5" opacity=".8"/>'
++'<rect x="84" y="120" width="32" height="5" rx="2.5" fill="'+acc+'" opacity=".7"/>'
++runes
++'<path d="M141 106l12-5 2 5-12 5z" fill="#cfd8ea" opacity=".8"/><path d="M139 108l-5 2" stroke="#cfd8ea" stroke-width="2" opacity=".8"/>'
++'</svg>';
+}
+window.boySVG=hunterSVG;
+
+/* ---- Status Window: HP/MP/STA + Stat Points ---- */
+function ensureStats(){set.stats=set.stats||{str:1,agi:1,int:1,per:1,vit:1};set.statPoints=set.statPoints||0;}
+window.assignStat=function(k){ensureStats();if(!(set.statPoints>0))return;set.stats[k]++;set.statPoints--;save();renderYou();};
+var swx=null;
+function enhanceYou(){
+ensureStats();
+if(!swx){swx=el('div');swx.id='swExtra';var yc=document.querySelector('.youcard');if(yc)yc.parentNode.insertBefore(swx,yc.nextSibling);}
+var L=levelOf(),s=set.stats;
+var hp=100+s.vit*10+L*5,mp=50+s.int*5+L*3,sta=80+s.agi*6+s.str*4;
+var h='<div class="swpanel">';
+h+='<div class="swbar hp"><span>HP</span><div class="tr"><i style="width:100%"></i></div><b>'+hp+'</b></div>';
+h+='<div class="swbar mp"><span>MP</span><div class="tr"><i style="width:100%"></i></div><b>'+mp+'</b></div>';
+h+='<div class="swbar sta"><span>STA</span><div class="tr"><i style="width:100%"></i></div><b>'+sta+'</b></div>';
+h+='<div class="swstats">';
+[['str','STR'],['agi','AGI'],['int','INT'],['per','PER'],['vit','VIT']].forEach(function(a){
+h+='<span class="swstat">'+a[1]+' '+s[a[0]]+(set.statPoints>0?'<button onclick="assignStat(\''+a[0]+'\')">+</button>':'')+'</span>';});
+h+='</div>';
+if(set.statPoints>0)h+='<div class="swpts">+'+set.statPoints+' STAT POINTS AVAILABLE</div>';
+h+='</div>';
+swx.innerHTML=h;
+}
+var _ry=window.renderYou;
+window.renderYou=function(){_ry();enhanceYou();};
+
 /* ---- containers ---- */
 var wrap=el('div');wrap.id='toastWrap';document.body.appendChild(wrap);
-
 var ov=el('div');ov.id='sysOv';
 ov.innerHTML='<div class="syswin"><div class="syshead"><i></i><span id="sysTitle">NOTIFICATION</span></div><div class="sysbody" id="sysBody"></div><button class="btn fill sysbtn" id="sysBtn">CONFIRM</button></div>';
 document.body.appendChild(ov);
-
 var lv=el('div');lv.id='lvlOv';
 lv.innerHTML='<div class="lvlring" id="lvlNum">1</div><div class="lvltitle">LEVEL UP</div>';
 document.body.appendChild(lv);
@@ -129,19 +173,18 @@ ov.classList.add('on');sfx('ok');if(navigator.vibrate)navigator.vibrate(20);}
 window.sysMsg=function(title,body){sysQ.push([title,body]);pump();};
 $('sysBtn').onclick=function(){ov.classList.remove('on');sysBusy=false;setTimeout(pump,220);};
 ov.addEventListener('click',function(e){if(e.target===ov)$('sysBtn').click();});
-
-/* ---- جایگزینی alert قدیمی ---- */
 window.alert=function(msg){window.sysMsg('NOTIFICATION',String(msg));};
 
-/* ---- تشخیص خودکار Level Up ---- */
+/* ---- Level Up watcher (+3 stat points) ---- */
 var lastLvl=null;
 setInterval(function(){if(typeof levelOf!=='function')return;var L=levelOf();
 if(lastLvl===null){lastLvl=L;return;}
-if(L>lastLvl){lastLvl=L;window.levelFX(L);}else{lastLvl=L;}},1500);
+if(L>lastLvl){lastLvl=L;ensureStats();set.statPoints+=3;save();window.levelFX(L);window.toast('+3 STAT POINTS');}
+else{lastLvl=L;}},1500);
 
 window.levelFX=function(L){$('lvlNum').textContent=L;lv.classList.add('on');sfx('lvl');
 if(navigator.vibrate)navigator.vibrate([60,40,60]);
 setTimeout(function(){lv.classList.remove('on');},2200);};
 lv.addEventListener('click',function(){lv.classList.remove('on');});
-console.log('ui engine v2 ok');
+console.log('ui engine v3 ok');
 })();
