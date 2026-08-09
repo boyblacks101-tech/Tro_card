@@ -1,4 +1,4 @@
-const C='tro-v8';
+const C='tro-v9'; 
 const FILES=['./','index.html','core.js','core2.js','data.js','manifest.json','icon.svg'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(FILES)))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))).then(()=>clients.claim()))});
