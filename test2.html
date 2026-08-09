@@ -1,0 +1,41 @@
+<pre id="o" style="color:#0f0;padding:12px;white-space:pre-wrap;font-size:12px">starting...</pre>
+<script>
+window.addEventListener('error',function(e){
+  var f=(e.filename||'').split('/').pop();
+  document.getElementById('o').textContent+='❌ ERROR in '+f+' line '+e.lineno+': '+e.message+'\n';
+},true);
+</script>
+<script src="data.js"></script>
+<script src="core.js"></script>
+<script src="core2.js"></script>
+<script>
+var o=document.getElementById('o');
+o.textContent+='\n=== CHECKING STATE ===\n';
+o.textContent+='typeof boot: '+typeof boot+'\n';
+o.textContent+='typeof load: '+typeof load+'\n';
+o.textContent+='typeof set: '+typeof set+'\n';
+try{
+  load();
+  o.textContent+='load() ran OK\n';
+  o.textContent+='set.onboarded = '+set.onboarded+'\n';
+  o.textContent+='set.pin = "'+set.pin+'"\n';
+  o.textContent+='set.ncr = "'+set.ncr+'"\n';
+}catch(e){
+  o.textContent+='❌ load() failed: '+e.message+'\n';
+}
+o.textContent+='\n=== SIMULATING BOOT ===\n';
+try{
+  applyTheme();
+  o.textContent+='applyTheme() OK\n';
+  if(!set.onboarded){
+    o.textContent+='\n✓ Should show ONBOARDING next!\n';
+  }else if(set.pin){
+    o.textContent+='\n✓ Should show LOCK screen next!\n';
+  }else{
+    o.textContent+='\n✓ Should show HOME next!\n';
+  }
+  o.textContent+='\n=== DONE - APP LOGIC IS OK ===';
+}catch(e){
+  o.textContent+='❌ failed: '+e.message+'\n';
+}
+</script>
