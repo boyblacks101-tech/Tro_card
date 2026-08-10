@@ -10,7 +10,7 @@ mono:{acc:'#ffffff',bord:'#4c4c4c',mut:'#b8b8b8',dim:'#909090',txt:'#f2f2f2',bg:
 sakura:{acc:'#ff375f',bord:'#6b3a5a',mut:'#e8aed4',dim:'#a8849a',txt:'#f7e7f1',bg:'#080005',card:'#26101c',card2:'#3f1a2e'}};
 const FS={s:['28px','17px'],m:['34px','19px'],l:['40px','22px']};
 const RANKS=[[0,'Rookie'],[100,'Word Hunter'],[250,'Lexicon Learner'],[500,'Vocab Knight'],[900,'Memory Baron'],[1400,'Word Wizard'],[2000,'Lexicon Lord'],[3000,'Word Master']];
-const RIVALS=['Ava','Kian','Lily','Omid','Nora','Reza','Maya','Arman','Sara','Ben'];
+const RIVALS=['Ava','Lily','Maya','Sara','Ben','Jack','Emma','Noah','Zoe','Luke'];
 const RIVAL_RATE={chill:[5,20],normal:[15,45],brutal:[30,80]};
 const ATTRS=[['mind','🧠','Mind'],['body','💪','Body'],['calm','🧘','Calm'],['work','💼','Work'],['create','🎨','Create']];
 const OB=[['🗡️','Troviruses up','You have been chosen as a Player. Level up your words, your body, your self.'],['🧬','Status Window','Every action gives XP. Watch your character grow from weak to S-Rank.'],['📜','Patch Notes','Each week, the app writes the update notes of YOU.'],];
