@@ -1,4 +1,4 @@
-/* TRO GAME HUB v5 */
+/* TRO GAME HUB v6 */
 (function(){
 if(window.__GAME__)return;window.__GAME__=1;
 window.G={};
@@ -14,7 +14,7 @@ window.gradeIt=function(g){var b=set.xp;_g(g);var bo=Math.round((set.xp-b)*(G.mu
 var _u=window.usedToday;
 window.usedToday=function(){var v=_u();return G.has('shadowMemory')?Math.max(0,v-2):v;};
 var ll=null;setInterval(function(){var L=levelOf();if(ll===null){ll=L;return;}if(L>ll){ll=L;G.esk();set.sp++;save();toast('+1 SKILL POINT');}else ll=L;},1500);
-var mods=['dq.js','skills.js','dungeon.js','crush.js','shadow.js','craft.js','titles.js','class.js','tower.js','pet.js','awaken.js','arena.js','story.js','notif.js','guild.js','event.js','best.js'],mi=0;
+var mods=['dq.js','skills.js','dungeon.js','crush.js','shadow.js','craft.js','titles.js','class.js','tower.js','pet.js','awaken.js','arena.js','story.js','notif.js','rest.js','guild.js','event.js','best.js'],mi=0;
 (function nxt(){if(mi>=mods.length)return;var s=document.createElement('script');s.src=mods[mi++];s.onload=nxt;s.onerror=nxt;document.body.appendChild(s);})();
 console.log('game hub ok');
 })();
